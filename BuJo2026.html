@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Bullet Journal - Your Dream Year</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Caveat:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 25%, #ff9a9e 50%, #fad0c4 75%, #ffd1ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Cover */
+        .hero-cover {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffd1ff 100%);
+            border-radius: 40px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 30px 90px rgba(255, 154, 158, 0.5);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cover::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            animation: moveBackground 30s linear infinite;
+            top: -50%;
+            left: -50%;
+        }
+
+        /* Decorative images on cover */
+        .cover-decoration {
+            position: absolute;
+            opacity: 0.15;
+            animation: floatSlow 20s ease-in-out infinite;
+        }
+
+        .cover-decoration:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            font-size: 5em;
+            animation-delay: 0s;
+        }
+
+        .cover-decoration:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            font-size: 4em;
+            animation-delay: 3s;
+        }
+
+        .cover-decoration:nth-child(3) {
+            bottom: 15%;
+            left: 8%;
+            font-size: 4.5em;
+            animation-delay: 6s;
+        }
+
+        .cover-decoration:nth-child(4) {
+            bottom: 20%;
+            right: 5%;
+            font-size: 5em;
+            animation-delay: 9s;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-15px, -30px) rotate(-5deg); }
+            75% { transform: translate(15px, -15px) rotate(3deg); }
+        }
+
+        .cover-verse {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 25px;
+            margin: 30px auto;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .cover-verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: white;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .cover-verse-ref {
+            color: white;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .hero-cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            color: white;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 2em;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 600;
+            color: #999;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            color: #ff9a9e;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
+        }
+
+        /* Page Styling */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 30px;
+            padding: 45px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff9a9e, #fecfef, #ffd1ff);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Monthly Header with Theme */
+        .monthly-header {
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .monthly-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .month-theme {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.2em;
+            backdrop-filter: blur(10px);
+        }
+
+        .month-nav-btn {
+            padding: 15px 35px;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .month-nav-btn:hover {
+            background: white;
+            color: #ff9a9e;
+            transform: scale(1.05);
+        }
+
+        /* Verse Box */
+        .verse-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 3px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verse-box::before {
+            content: '❝';
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-size: 8em;
+            opacity: 0.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verse-reference {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        /* Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .calendar-day.header {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+        }
+
+        /* Habit Tracker */
+        .habit-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .habit-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .habit-label {
+            min-width: 220px;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 8px 25px rgba(252, 182, 159, 0.4);
+        }
+
+        .habit-dots {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .habit-dot {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: #999;
+            border: 3px solid #ffe8ec;
+            font-weight: 600;
+        }
+
+        .habit-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .habit-dot.checked {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            border-color: #84fab0;
+            color: white;
+            font-size: 1.4em;
+        }
+
+        /* Period Tracker */
+        .period-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .period-day {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            font-weight: 600;
+        }
+
+        .period-day:hover {
+            transform: scale(1.05);
+        }
+
+        .period-day.period {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+            color: white;
+            border-color: #ff6b9d;
+        }
+
+        .period-day.ovulation {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            border-color: #a8edea;
+        }
+
+        .period-day.fertile {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-color: #fcb69f;
+        }
+
+        .period-legend {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .legend-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        /* Todo Items */
+        .todo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .todo-item {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 22px 30px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(252, 182, 159, 0.3);
+        }
+
+        .todo-item:hover {
+            transform: translateX(10px);
+        }
+
+        .todo-checkbox {
+            width: 32px;
+            height: 32px;
+            border: 4px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .todo-checkbox.checked {
+            background: white;
+            border-color: #84fab0;
+        }
+
+        .todo-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #84fab0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .todo-input {
+            flex: 1;
+            background: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-family: inherit;
+        }
+
+        /* Year Grid */
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .month-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .month-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .month-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .month-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .month-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .month-theme-text {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Mood & Other Trackers */
+        .mood-grid, .water-tracker, .memory-grid, .bucket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .mood-day {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mood-day:hover {
+            transform: scale(1.1);
+        }
+
+        .mood-emoji {
+            font-size: 2.5em;
+            opacity: 0.3;
+        }
+
+        .mood-day.selected .mood-emoji {
+            opacity: 1;
+        }
+
+        .add-btn {
+            margin-top: 25px;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.4);
+        }
+
+        .add-btn:hover {
+            transform: scale(1.05);
+        }
+
+        input, textarea {
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-cover h1 { font-size: 3em; }
+            .monthly-header h2 { font-size: 2.5em; }
+            .section-title { font-size: 2em; }
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff9a9e;
+            position: absolute;
+            animation: confetti-fall 3s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 4em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .stat-sublabel {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            box-shadow: 0 10px 40px rgba(255, 154, 158, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 15px 50px rgba(255, 154, 158, 0.7);
+        }
+
+        /* Daily Quote Box */
+        .daily-quote {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .daily-quote::before {
+            content: '💫';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 10em;
+            opacity: 0.1;
+        }
+
+        .quote-text {
+            font-family: 'Caveat', cursive;
+            font-size: 2em;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .quote-refresh {
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .quote-refresh:hover {
+            background: white;
+            color: #a8edea;
+            transform: scale(1.05);
+        }
+
+        /* Progress Ring */
+        .progress-ring {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        /* Streak Badge */
+        .streak-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 5px 20px rgba(253, 203, 110, 0.4);
+            margin-left: 10px;
+        }
+
+        /* Success Animation */
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .success-pulse {
+            animation: successPulse 0.5s ease;
+        }
+
+        /* Media Cards for Movies/Books/Music */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .media-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9a9e, #fecfef, #ffd1ff);
+        }
+
+        .media-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .media-card input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffe8ec;
+            border-radius: 15px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+        }
+
+        .media-card textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffe8ec;
+            border-radius: 15px;
+            font-size: 1em;
+            margin-top: 10px;
+            min-height: 80px;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            resize: vertical;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+            font-size: 1.8em;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+
+        .rating-stars span {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .rating-stars span:hover,
+        .rating-stars span.active {
+            color: #ffd700;
+            transform: scale(1.2);
+        }
+
+        .media-label {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .media-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .genre-tag {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* Yearly Habit Tracker */
+        .yearly-habit-container {
+            margin-top: 30px;
+        }
+
+        .yearly-habit-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .yearly-habit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .yearly-habit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .yearly-habit-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .yearly-habit-stats {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .yearly-stat {
+            text-align: center;
+        }
+
+        .yearly-stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .yearly-stat-label {
+            font-size: 0.85em;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .yearly-calendar {
+            display: grid;
+            grid-template-columns: repeat(31, 1fr);
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .yearly-month-label {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .yearly-day-cell {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: #999;
+            border: 2px solid transparent;
+        }
+
+        .yearly-day-cell:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .yearly-day-cell.empty {
+            background: #f5f5f5;
+            cursor: default;
+        }
+
+        .yearly-day-cell.active {
+            background: #fff;
+            border-color: #e0e0e0;
+        }
+
+        .yearly-day-cell.completed {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            color: white;
+            border-color: #84fab0;
+            font-weight: 700;
+        }
+
+        .yearly-month-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            border-radius: 20px;
+        }
+
+        .habit-legend {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .legend-box {
+            width: 25px;
+            height: 25px;
+            border-radius: 6px;
+            border: 2px solid;
+        }
+
+        /* Habit Color Themes */
+        .habit-bible-reading { border-color: #667eea; }
+        .habit-bible-reading.completed { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+        .habit-verse { border-color: #f093fb; }
+        .habit-verse.completed { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+        .habit-walk-jesus { border-color: #4facfe; }
+        .habit-walk-jesus.completed { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .habit-refresh { border-color: #43e97b; }
+        .habit-refresh.completed { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+        .habit-sermon { border-color: #fa709a; }
+        .habit-sermon.completed { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+        .habit-family-prayer { border-color: #feca57; }
+        .habit-family-prayer.completed { background: linear-gradient(135deg, #feca57, #ff9a56); }
+
+        .habit-language { border-color: #a8edea; }
+        .habit-language.completed { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+
+        .habit-make-bed { border-color: #ffecd2; }
+        .habit-make-bed.completed { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+
+        .yearly-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .yearly-overview-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .yearly-overview-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .yearly-overview-title {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .yearly-overview-number {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Habit Tabs Navigation */
+        .habit-tabs-nav {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .habit-tab-btn {
+            padding: 12px 25px;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .habit-tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .habit-tab-btn.active {
+            color: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .single-habit-view {
+            display: none;
+        }
+
+        .single-habit-view.active {
+            display: block;
+        }
+
+        /* Save indicator */
+        .save-indicator {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(132, 250, 176, 0.5);
+            z-index: 999;
+            animation: slideInRight 0.5s ease;
+            display: none;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .save-indicator.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Cover -->
+        <div class="hero-cover">
+            <div class="cover-decoration">🌸</div>
+            <div class="cover-decoration">✨</div>
+            <div class="cover-decoration">🦋</div>
+            <div class="cover-decoration">🌈</div>
+            
+            <h1>✨ 2026 ✨</h1>
+            <div class="hero-subtitle">Your Most Beautiful Year Awaits</div>
+            
+            <div class="cover-verse">
+                <div class="cover-verse-text">"See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland."</div>
+                <div class="cover-verse-ref">— Isaiah 43:19</div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('year')">📅 Year Overview</button>
+            <button class="tab-btn" onclick="showTab('month')">🌙 Monthly View</button>
+            <button class="tab-btn" onclick="showTab('habits')">✨ Habit Tracker</button>
+            <button class="tab-btn" onclick="showTab('yearlyhabits')">📖 Yearly Habits</button>
+            <button class="tab-btn" onclick="showTab('mood')">😊 Mood Tracker</button>
+            <button class="tab-btn" onclick="showTab('period')">🌸 Period Tracker</button>
+            <button class="tab-btn" onclick="showTab('goals')">🎯 Goals</button>
+            <button class="tab-btn" onclick="showTab('movies')">🎬 Movies</button>
+            <button class="tab-btn" onclick="showTab('books')">📚 Books</button>
+            <button class="tab-btn" onclick="showTab('music')">🎵 Music</button>
+            <button class="tab-btn" onclick="showTab('gratitude')">🙏 Gratitude</button>
+            <button class="tab-btn" onclick="showTab('memories')">💝 Memories</button>
+            <button class="tab-btn" onclick="showTab('stats')">📊 My Progress</button>
+        </div>
+
+        <!-- Year Overview Page -->
+        <div id="year" class="page active">
+            <div class="year-grid" id="yearGrid"></div>
+        </div>
+
+        <!-- Monthly View Page -->
+        <div id="month" class="page">
+            <div class="monthly-header" id="monthlyHeader">
+                <button class="month-nav-btn" onclick="changeMonth(-1)">← Previous</button>
+                <div style="text-align: center;">
+                    <h2 id="monthTitle"></h2>
+                    <div class="month-theme" id="monthTheme"></div>
+                </div>
+                <button class="month-nav-btn" onclick="changeMonth(1)">Next →</button>
+            </div>
+
+            <!-- Verse of the Month -->
+            <div class="verse-box" id="verseBox"></div>
+
+            <!-- Calendar -->
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📅</span>
+                    <span>Monthly Calendar</span>
+                </div>
+                <div class="calendar-grid" id="monthCalendar"></div>
+            </div>
+
+            <!-- Monthly Goals -->
+            <div class="section-card">
+                <div class="section-title">
+                    <span>✓</span>
+                    <span>Monthly Goals</span>
+                </div>
+                <div class="todo-container" id="todoList"></div>
+                <button class="add-btn" onclick="addTodo()">+ Add Goal</button>
+            </div>
+        </div>
+
+        <!-- Habits Page -->
+        <div id="habits" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>✨</span>
+                    <span>Daily Habit Tracker</span>
+                </div>
+                <p style="color: #999; margin-bottom: 20px; font-style: italic;">Click circles to track your daily habits!</p>
+                <div class="habit-grid" id="habitTracker"></div>
+            </div>
+        </div>
+
+        <!-- Yearly Habits Log Page -->
+        <div id="yearlyhabits" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📖</span>
+                    <span>2026 Yearly Habit Logs</span>
+                </div>
+                
+                <div class="verse-box" style="margin-top: 20px; border-color: #667eea;">
+                    <div class="verse-text" style="color: #667eea;">"So whether you eat or drink or whatever you do, do it all for the glory of God."</div>
+                    <div class="verse-reference" style="color: #667eea;">— 1 Corinthians 10:31</div>
+                </div>
+
+                <p style="color: #999; text-align: center; margin: 25px 0; font-size: 1.1em; font-style: italic;">
+                    Track your daily spiritual journey and build habits that draw you closer to God 🙏
+                </p>
+
+                <!-- Yearly Overview Stats -->
+                <div class="yearly-overview-grid">
+                    <div class="yearly-overview-card">
+                        <div class="yearly-overview-icon">📖</div>
+                        <div class="yearly-overview-title">Days Reading</div>
+                        <div class="yearly-overview-number" id="bibleReadingTotal">0</div>
+                    </div>
+                    <div class="yearly-overview-card">
+                        <div class="yearly-overview-icon">✨</div>
+                        <div class="yearly-overview-title">Total Habits</div>
+                        <div class="yearly-overview-number" id="totalHabitsCompleted">0</div>
+                    </div>
+                    <div class="yearly-overview-card">
+                        <div class="yearly-overview-icon">🔥</div>
+                        <div class="yearly-overview-title">Best Streak</div>
+                        <div class="yearly-overview-number" id="bestStreak">0</div>
+                    </div>
+                    <div class="yearly-overview-card">
+                        <div class="yearly-overview-icon">💪</div>
+                        <div class="yearly-overview-title">Success Rate</div>
+                        <div class="yearly-overview-number" id="yearlySuccessRate">0%</div>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="habit-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background: #fff; border-color: #e0e0e0;"></div>
+                        <span>Not Done</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box completed" style="background: linear-gradient(135deg, #84fab0, #8fd3f4); border-color: #84fab0;"></div>
+                        <span>Completed</span>
+                    </div>
+                </div>
+
+                <!-- Habit Tabs Navigation -->
+                <div class="habit-tabs-nav" id="habitTabsNav"></div>
+            </div>
+
+            <!-- Individual Habit Trackers (now with tabs) -->
+            <div class="yearly-habit-container" id="yearlyHabitContainer"></div>
+
+            <!-- Save Indicator -->
+            <div class="save-indicator" id="saveIndicator">
+                ✓ Saved automatically!
+            </div>
+        </div>
+
+        <!-- Mood Tracker Page -->
+        <div id="mood" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>😊</span>
+                    <span>Monthly Mood Tracker</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 25px; font-size: 1.1em;">
+                    Click each day to cycle through moods: 😢 😟 😐 🙂 😊 😄 🥰
+                </p>
+                <div class="mood-grid" id="moodGrid"></div>
+            </div>
+        </div>
+
+        <!-- Period Tracker Page -->
+        <div id="period" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>🌸</span>
+                    <span>Period Tracker</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 25px; font-size: 1.1em;">
+                    Track your cycle by clicking on days. Click multiple times to cycle through phases.
+                </p>
+                <div class="period-calendar" id="periodCalendar"></div>
+                <div class="period-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background: linear-gradient(135deg, #ff6b9d, #ff8fab);"></div>
+                        <span>Period</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);"></div>
+                        <span>Fertile Window</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background: linear-gradient(135deg, #a8edea, #fed6e3);"></div>
+                        <span>Ovulation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📝</span>
+                    <span>Cycle Notes</span>
+                </div>
+                <textarea style="width: 100%; min-height: 150px; padding: 20px; border: 2px solid #ffe8ec; border-radius: 20px; font-size: 1.1em; font-family: inherit;" placeholder="Track symptoms, mood changes, or any notes about your cycle..."></textarea>
+            </div>
+        </div>
+
+        <!-- Goals Page -->
+        <div id="goals" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>🎯</span>
+                    <span>2026 Goals & Dreams</span>
+                </div>
+                <div class="bucket-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Travel to a dream destination">
+                    </div>
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Learn a new skill">
+                    </div>
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Read 24 books">
+                    </div>
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Start a passion project">
+                    </div>
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Improve health & fitness">
+                    </div>
+                    <div class="todo-item">
+                        <div class="todo-checkbox" onclick="this.classList.toggle('checked')"></div>
+                        <input class="todo-input" value="Build meaningful relationships">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gratitude Page -->
+        <div id="gratitude" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>🙏</span>
+                    <span>Gratitude Garden</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 30px; font-size: 1.2em; font-style: italic;">
+                    "Gratitude turns what we have into enough" 🌸
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="I'm grateful for..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="Someone who inspired me..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A blessing in disguise..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #84fab0, #8fd3f4); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="Something beautiful today..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffd1ff, #fecfef); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A challenge that helped me grow..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A simple joy..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memories Page -->
+        <div id="memories" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>💝</span>
+                    <span>Memory Jar</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 30px; font-size: 1.1em; font-style: italic;">
+                    Capture the beautiful moments that make life special 🌸
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;" id="memoryGrid">
+                    <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                        <span style="position: absolute; top: -10px; right: -10px; font-size: 4em; opacity: 0.3;">💝</span>
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A moment that made you smile..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                        <span style="position: absolute; top: -10px; right: -10px; font-size: 4em; opacity: 0.3;">✨</span>
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="Something you're proud of..."></textarea>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
+                        <span style="position: absolute; top: -10px; right: -10px; font-size: 4em; opacity: 0.3;">🌟</span>
+                        <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A kind gesture..."></textarea>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMemory()">+ Add Memory</button>
+            </div>
+        </div>
+
+        <!-- Movies This Year Page -->
+        <div id="movies" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>🎬</span>
+                    <span>Movies Watched in 2026</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 30px; font-size: 1.1em; font-style: italic;">
+                    Keep track of all the films that entertained, inspired, and moved you this year 🍿
+                </p>
+                <div class="media-grid" id="moviesGrid">
+                    <div class="media-card">
+                        <span class="media-icon">🎥</span>
+                        <input type="text" placeholder="Movie Title" />
+                        <label class="media-label">My Rating:</label>
+                        <div class="rating-stars" onclick="rateMedia(event)">
+                            <span data-rating="1">⭐</span>
+                            <span data-rating="2">⭐</span>
+                            <span data-rating="3">⭐</span>
+                            <span data-rating="4">⭐</span>
+                            <span data-rating="5">⭐</span>
+                        </div>
+                        <label class="media-label">Genre:</label>
+                        <input type="text" placeholder="Action, Drama, Comedy..." style="font-size: 0.9em;" />
+                        <textarea placeholder="Your thoughts, favorite scenes, memorable quotes..."></textarea>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMovie()">+ Add Movie</button>
+                
+                <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); padding: 30px; border-radius: 25px; margin-top: 30px;">
+                    <h3 style="color: white; font-size: 1.5em; margin-bottom: 15px; text-align: center;">🏆 2026 Movie Stats</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">0</div>
+                            <div style="color: white;">Movies Watched</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">⭐⭐⭐⭐⭐</div>
+                            <div style="color: white;">Favorite Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Read This Year Page -->
+        <div id="books" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📚</span>
+                    <span>Books Read in 2026</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 30px; font-size: 1.1em; font-style: italic;">
+                    Document your reading journey and the stories that changed you 📖
+                </p>
+                <div class="media-grid" id="booksGrid">
+                    <div class="media-card">
+                        <span class="media-icon">📕</span>
+                        <input type="text" placeholder="Book Title" />
+                        <input type="text" placeholder="Author" style="font-size: 0.95em;" />
+                        <label class="media-label">My Rating:</label>
+                        <div class="rating-stars" onclick="rateMedia(event)">
+                            <span data-rating="1">⭐</span>
+                            <span data-rating="2">⭐</span>
+                            <span data-rating="3">⭐</span>
+                            <span data-rating="4">⭐</span>
+                            <span data-rating="5">⭐</span>
+                        </div>
+                        <label class="media-label">Genre:</label>
+                        <input type="text" placeholder="Fiction, Non-fiction, Self-help..." style="font-size: 0.9em;" />
+                        <textarea placeholder="Key takeaways, favorite quotes, how it impacted you..."></textarea>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addBook()">+ Add Book</button>
+                
+                <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); padding: 30px; border-radius: 25px; margin-top: 30px;">
+                    <h3 style="color: white; font-size: 1.5em; margin-bottom: 15px; text-align: center;">📊 2026 Reading Challenge</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">0/24</div>
+                            <div style="color: white;">Books Read</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">0</div>
+                            <div style="color: white;">Pages Read</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">📚</div>
+                            <div style="color: white;">Current Book</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music & Songs Page -->
+        <div id="music" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>🎵</span>
+                    <span>New Music Discovered in 2026</span>
+                </div>
+                <p style="color: #999; text-align: center; margin-bottom: 30px; font-size: 1.1em; font-style: italic;">
+                    Track the songs and artists that became the soundtrack to your year 🎧
+                </p>
+                <div class="media-grid" id="musicGrid">
+                    <div class="media-card">
+                        <span class="media-icon">🎼</span>
+                        <input type="text" placeholder="Song Title" />
+                        <input type="text" placeholder="Artist" style="font-size: 0.95em;" />
+                        <label class="media-label">My Rating:</label>
+                        <div class="rating-stars" onclick="rateMedia(event)">
+                            <span data-rating="1">⭐</span>
+                            <span data-rating="2">⭐</span>
+                            <span data-rating="3">⭐</span>
+                            <span data-rating="4">⭐</span>
+                            <span data-rating="5">⭐</span>
+                        </div>
+                        <label class="media-label">Genre:</label>
+                        <input type="text" placeholder="Pop, Rock, Jazz, Classical..." style="font-size: 0.9em;" />
+                        <textarea placeholder="Why you love it, when you discovered it, memories associated..."></textarea>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addSong()">+ Add Song</button>
+                
+                <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); padding: 30px; border-radius: 25px; margin-top: 30px;">
+                    <h3 style="color: white; font-size: 1.5em; margin-bottom: 15px; text-align: center;">🎶 Your 2026 Playlist Stats</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">0</div>
+                            <div style="color: white;">New Songs</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">0</div>
+                            <div style="color: white;">Artists</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: 700; color: white;">🎵</div>
+                            <div style="color: white;">Top Genre</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Playlist Section -->
+                <div class="section-card" style="margin-top: 30px;">
+                    <div class="section-title">
+                        <span>🎧</span>
+                        <span>Monthly Playlists</span>
+                    </div>
+                    <p style="color: #999; margin-bottom: 20px; font-style: italic;">Create a playlist theme for each month!</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); padding: 25px; border-radius: 20px;">
+                            <h4 style="color: white; margin-bottom: 10px;">January Vibes 🎵</h4>
+                            <input type="text" placeholder="Playlist name..." style="width: 100%; padding: 10px; border: none; border-radius: 10px; margin-bottom: 10px;" />
+                            <textarea placeholder="Add your top songs..." style="width: 100%; height: 80px; border: none; border-radius: 10px; padding: 10px; resize: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats & Progress Page -->
+        <div id="stats" class="page">
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📊</span>
+                    <span>Your 2026 Progress</span>
+                </div>
+                
+                <!-- Daily Quote -->
+                <div class="daily-quote">
+                    <div class="quote-text" id="dailyQuote">"Every day is a fresh start. You are doing amazing!"</div>
+                    <button class="quote-refresh" onclick="rotateQuote()">🔄 New Inspiration</button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="habitStreak">0</div>
+                        <div class="stat-label">Day Streak 🔥</div>
+                        <div class="stat-sublabel">Keep going!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="goalsCompleted">0</div>
+                        <div class="stat-label">Goals Completed ✓</div>
+                        <div class="stat-sublabel">This month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="gratitudeCount">0</div>
+                        <div class="stat-label">Gratitude Entries 🙏</div>
+                        <div class="stat-sublabel">Total recorded</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="memoryCount">0</div>
+                        <div class="stat-label">Memories Saved 💝</div>
+                        <div class="stat-sublabel">Special moments</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="habitRate">0%</div>
+                        <div class="stat-label">Habit Success Rate</div>
+                        <div class="stat-sublabel">This month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">365</div>
+                        <div class="stat-label">Days of Possibility ✨</div>
+                        <div class="stat-sublabel">Make them count!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Overview -->
+            <div class="section-card">
+                <div class="section-title">
+                    <span>📈</span>
+                    <span>Monthly Insights</span>
+                </div>
+                <div style="background: linear-gradient(135deg, #fff5f7, #ffe8ec); padding: 30px; border-radius: 20px; margin-top: 20px;">
+                    <h3 style="color: #ff9a9e; margin-bottom: 20px; font-size: 1.5em;">🌟 Your Achievements This Month</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 15px; background: white; border-radius: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5em;">✨</span>
+                            <span>You've tracked your habits consistently</span>
+                        </li>
+                        <li style="padding: 15px; background: white; border-radius: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5em;">💪</span>
+                            <span>You're making progress on your goals</span>
+                        </li>
+                        <li style="padding: 15px; background: white; border-radius: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5em;">🙏</span>
+                            <span>You're practicing gratitude regularly</span>
+                        </li>
+                        <li style="padding: 15px; background: white; border-radius: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5em;">🌸</span>
+                            <span>You're taking care of your wellness</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="fab" onclick="jumpToToday()" title="Jump to Today">📍</button>
+    </div>
+
+    <script>
+        let currentMonth = 0;
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        const monthData = [
+            {
+                icon: '⛄',
+                theme: 'New Beginnings',
+                color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+                borderColor: '#a8edea',
+                verse: '"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."',
+                reference: 'Jeremiah 29:11'
+            },
+            {
+                icon: '💝',
+                theme: 'Love & Kindness',
+                color: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+                borderColor: '#ff9a9e',
+                verse: '"Love is patient, love is kind. It does not envy, it does not boast, it is not proud."',
+                reference: '1 Corinthians 13:4'
+            },
+            {
+                icon: '🌸',
+                theme: 'Growth & Renewal',
+                color: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+                borderColor: '#ffecd2',
+                verse: '"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"',
+                reference: '2 Corinthians 5:17'
+            },
+            {
+                icon: '🌧️',
+                theme: 'Renewal & Refresh',
+                color: 'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
+                borderColor: '#a1c4fd',
+                verse: '"Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up."',
+                reference: 'Galatians 6:9'
+            },
+            {
+                icon: '🌺',
+                theme: 'Bloom & Flourish',
+                color: 'linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)',
+                borderColor: '#fccb90',
+                verse: '"I can do all this through him who gives me strength."',
+                reference: 'Philippians 4:13'
+            },
+            {
+                icon: '☀️',
+                theme: 'Joy & Sunshine',
+                color: 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)',
+                borderColor: '#ffeaa7',
+                verse: '"This is the day that the Lord has made; let us rejoice and be glad in it."',
+                reference: 'Psalm 118:24'
+            },
+            {
+                icon: '🏖️',
+                theme: 'Rest & Peace',
+                color: 'linear-gradient(135deg, #74ebd5 0%, #9face6 100%)',
+                borderColor: '#74ebd5',
+                verse: '"Come to me, all you who are weary and burdened, and I will give you rest."',
+                reference: 'Matthew 11:28'
+            },
+            {
+                icon: '🌻',
+                theme: 'Strength & Courage',
+                color: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+                borderColor: '#f6d365',
+                verse: '"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."',
+                reference: 'Joshua 1:9'
+            },
+            {
+                icon: '🍂',
+                theme: 'Harvest & Gratitude',
+                color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                borderColor: '#fa709a',
+                verse: '"Give thanks in all circumstances; for this is God\'s will for you in Christ Jesus."',
+                reference: '1 Thessalonians 5:18'
+            },
+            {
+                icon: '🎃',
+                theme: 'Change & Transformation',
+                color: 'linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%)',
+                borderColor: '#ff9a56',
+                verse: '"And we all, who with unveiled faces contemplate the Lord\'s glory, are being transformed into his image with ever-increasing glory."',
+                reference: '2 Corinthians 3:18'
+            },
+            {
+                icon: '🍁',
+                theme: 'Reflection & Wisdom',
+                color: 'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)',
+                borderColor: '#d299c2',
+                verse: '"The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding."',
+                reference: 'Proverbs 9:10'
+            },
+            {
+                icon: '🎄',
+                theme: 'Hope & Celebration',
+                color: 'linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%)',
+                borderColor: '#ee9ca7',
+                verse: '"For to us a child is born, to us a son is given, and the government will be on his shoulders."',
+                reference: 'Isaiah 9:6'
+            }
+        ];
+        
+        const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const moodEmojis = ['😢', '😟', '😐', '🙂', '😊', '😄', '🥰'];
+        const periodPhases = ['', 'period', 'fertile', 'ovulation'];
+        
+        let habits = ['💧 Hydrate', '🏃 Exercise', '📖 Read', '🧘 Meditate', '💤 Sleep 8hrs', '🥗 Healthy Eating'];
+        let todos = [];
+        let habitState = {};
+        let moodState = {};
+        let periodState = {};
+
+        // Yearly Habits
+        const yearlyHabits = [
+            { name: '📖 Bible Reading', icon: '📖', class: 'habit-bible-reading', color: '#667eea' },
+            { name: '✝️ Bible Verse Status', icon: '✝️', class: 'habit-verse', color: '#f093fb' },
+            { name: '🚶 Walk with Jesus', icon: '🚶', class: 'habit-walk-jesus', color: '#4facfe' },
+            { name: '🌅 Daily Refresh', icon: '🌅', class: 'habit-refresh', color: '#43e97b' },
+            { name: '⛪ Sermon', icon: '⛪', class: 'habit-sermon', color: '#fa709a' },
+            { name: '👨‍👩‍👧‍👦 Family Prayer', icon: '👨‍👩‍👧‍👦', class: 'habit-family-prayer', color: '#feca57' },
+            { name: '🗣️ Language', icon: '🗣️', class: 'habit-language', color: '#a8edea' },
+            { name: '🛏️ Make Bed', icon: '🛏️', class: 'habit-make-bed', color: '#ffecd2' }
+        ];
+
+        let yearlyHabitState = {};
+
+        let currentHabitTab = 0;
+
+        // Save all data to localStorage
+        function saveAllData() {
+            const dataToSave = {
+                habitState: habitState,
+                yearlyHabitState: yearlyHabitState,
+                moodState: moodState,
+                periodState: periodState,
+                todos: todos,
+                lastSaved: new Date().toISOString()
+            };
+            
+            try {
+                localStorage.setItem('bulletJournal2026', JSON.stringify(dataToSave));
+                showSaveIndicator();
+            } catch (e) {
+                console.error('Error saving data:', e);
+            }
+        }
+
+        // Load all data from localStorage
+        function loadAllData() {
+            try {
+                const savedData = localStorage.getItem('bulletJournal2026');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    habitState = data.habitState || {};
+                    yearlyHabitState = data.yearlyHabitState || {};
+                    moodState = data.moodState || {};
+                    periodState = data.periodState || {};
+                    todos = data.todos || [];
+                    console.log('Data loaded successfully!');
+                }
+            } catch (e) {
+                console.error('Error loading data:', e);
+            }
+        }
+
+        // Show save indicator
+        function showSaveIndicator() {
+            const indicator = document.getElementById('saveIndicator');
+            if (indicator) {
+                indicator.classList.add('show');
+                setTimeout(() => {
+                    indicator.classList.remove('show');
+                }, 2000);
+            }
+        }
+
+        const inspirationalQuotes = [
+            "Every day is a fresh start. You are doing amazing!",
+            "Progress, not perfection. Every step forward counts.",
+            "You are capable of amazing things!",
+            "Small daily improvements lead to stunning results.",
+            "Believe in yourself and all that you are.",
+            "Your potential is endless. Keep going!",
+            "Today is full of possibilities. Embrace them!",
+            "You are stronger than you think.",
+            "Dream big, work hard, stay focused.",
+            "The best time for new beginnings is now.",
+            "You've got this! One day at a time.",
+            "Be proud of how far you've come.",
+            "Your journey is beautiful. Keep shining!",
+            "Every moment is a chance to start again.",
+            "You are worthy of all your dreams."
+        ];
+
+        let currentQuoteIndex = 0;
+
+
+
+        function changeMonth(delta) {
+            currentMonth = (currentMonth + delta + 12) % 12;
+            updateMonthView();
+        }
+
+        function getDayOfWeek(year, month, day) {
+            return new Date(year, month, day).getDay();
+        }
+
+        function updateMonthView() {
+            const data = monthData[currentMonth];
+            
+            // Update header with theme
+            document.getElementById('monthTitle').textContent = months[currentMonth];
+            document.getElementById('monthTheme').textContent = `✨ ${data.theme} ✨`;
+            
+            const header = document.getElementById('monthlyHeader');
+            header.style.background = data.color;
+            
+            // Update verse
+            const verseBox = document.getElementById('verseBox');
+            verseBox.style.borderColor = data.borderColor;
+            verseBox.innerHTML = `
+                <div class="verse-text" style="color: ${data.borderColor};">${data.verse}</div>
+                <div class="verse-reference" style="color: ${data.borderColor};">— ${data.reference}</div>
+            `;
+            
+            // Update calendar
+            const calendar = document.getElementById('monthCalendar');
+            calendar.innerHTML = '';
+            
+            const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            dayHeaders.forEach(day => {
+                const header = document.createElement('div');
+                header.className = 'calendar-day header';
+                header.textContent = day;
+                calendar.appendChild(header);
+            });
+
+            const firstDay = getDayOfWeek(2026, currentMonth, 1);
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'calendar-day';
+                empty.style.background = 'transparent';
+                calendar.appendChild(empty);
+            }
+
+            for (let day = 1; day <= daysInMonth[currentMonth]; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day';
+                dayEl.textContent = day;
+                calendar.appendChild(dayEl);
+            }
+
+            updateTodoList();
+        }
+
+        function updateHabitTracker() {
+            const tracker = document.getElementById('habitTracker');
+            tracker.innerHTML = '';
+            
+            habits.forEach((habit, habitIdx) => {
+                const row = document.createElement('div');
+                row.className = 'habit-row';
+                
+                const label = document.createElement('div');
+                label.className = 'habit-label';
+                label.textContent = habit;
+                row.appendChild(label);
+
+                const dots = document.createElement('div');
+                dots.className = 'habit-dots';
+
+                for (let day = 1; day <= daysInMonth[currentMonth]; day++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'habit-dot';
+                    dot.textContent = day;
+                    const key = `${currentMonth}-${habitIdx}-${day}`;
+                    
+                    if (habitState[key]) {
+                        dot.classList.add('checked');
+                        dot.textContent = '✓';
+                    }
+                    
+                    dot.onclick = () => {
+                        habitState[key] = !habitState[key];
+                        dot.classList.toggle('checked');
+                        dot.textContent = habitState[key] ? '✓' : day;
+                        
+                        // Add celebration effect
+                        if (habitState[key]) {
+                            dot.classList.add('success-pulse');
+                            setTimeout(() => dot.classList.remove('success-pulse'), 500);
+                        }
+                    };
+                    dots.appendChild(dot);
+                }
+                
+                row.appendChild(dots);
+                tracker.appendChild(row);
+            });
+        }
+
+        function updateTodoList() {
+            const list = document.getElementById('todoList');
+            list.innerHTML = '';
+            
+            if (todos.length === 0) {
+                todos = ['Set monthly intentions', 'Plan weekly schedule', 'Self-care routine', 'Connect with loved ones'];
+            }
+            
+            todos.forEach((todo, idx) => {
+                const item = document.createElement('div');
+                item.className = 'todo-item';
+                
+                const checkbox = document.createElement('div');
+                checkbox.className = 'todo-checkbox';
+                enhanceTodoCheckbox(checkbox);
+                
+                const input = document.createElement('input');
+                input.className = 'todo-input';
+                input.value = todo;
+                input.onchange = () => todos[idx] = input.value;
+                
+                item.appendChild(checkbox);
+                item.appendChild(input);
+                list.appendChild(item);
+            });
+        }
+
+        function addTodo() {
+            todos.push('New goal...');
+            updateTodoList();
+        }
+
+        function updateMoodTracker() {
+            const grid = document.getElementById('moodGrid');
+            grid.innerHTML = '';
+            
+            for (let day = 1; day <= daysInMonth[currentMonth]; day++) {
+                const moodDay = document.createElement('div');
+                moodDay.className = 'mood-day';
+                
+                const dayNum = document.createElement('div');
+                dayNum.style.fontSize = '0.9em';
+                dayNum.style.color = '#999';
+                dayNum.textContent = `Day ${day}`;
+                
+                const emoji = document.createElement('div');
+                emoji.className = 'mood-emoji';
+                const key = `${currentMonth}-${day}`;
+                emoji.textContent = moodState[key] || '😊';
+                
+                if (moodState[key]) {
+                    moodDay.classList.add('selected');
+                }
+                
+                moodDay.onclick = () => {
+                    const currentIdx = moodEmojis.indexOf(moodState[key] || '😊');
+                    const nextIdx = (currentIdx + 1) % moodEmojis.length;
+                    moodState[key] = moodEmojis[nextIdx];
+                    emoji.textContent = moodEmojis[nextIdx];
+                    moodDay.classList.add('selected');
+                };
+                
+                moodDay.appendChild(dayNum);
+                moodDay.appendChild(emoji);
+                grid.appendChild(moodDay);
+            }
+        }
+
+        function updatePeriodTracker() {
+            const calendar = document.getElementById('periodCalendar');
+            calendar.innerHTML = '';
+            
+            const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            dayHeaders.forEach(day => {
+                const header = document.createElement('div');
+                header.className = 'period-day';
+                header.style.background = 'linear-gradient(135deg, #ff9a9e, #fecfef)';
+                header.style.color = 'white';
+                header.style.fontWeight = '700';
+                header.style.cursor = 'default';
+                header.textContent = day;
+                calendar.appendChild(header);
+            });
+
+            const firstDay = getDayOfWeek(2026, currentMonth, 1);
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'period-day';
+                empty.style.background = 'transparent';
+                empty.style.cursor = 'default';
+                calendar.appendChild(empty);
+            }
+
+            for (let day = 1; day <= daysInMonth[currentMonth]; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'period-day';
+                const key = `${currentMonth}-${day}`;
+                const phase = periodState[key] || '';
+                
+                if (phase) {
+                    dayEl.classList.add(phase);
+                }
+                
+                const dayNum = document.createElement('div');
+                dayNum.textContent = day;
+                dayEl.appendChild(dayNum);
+                
+                dayEl.onclick = () => {
+                    const currentIdx = periodPhases.indexOf(periodState[key] || '');
+                    const nextIdx = (currentIdx + 1) % periodPhases.length;
+                    const newPhase = periodPhases[nextIdx];
+                    
+                    if (newPhase) {
+                        periodState[key] = newPhase;
+                        dayEl.className = 'period-day ' + newPhase;
+                    } else {
+                        delete periodState[key];
+                        dayEl.className = 'period-day';
+                    }
+                };
+                
+                calendar.appendChild(dayEl);
+            }
+        }
+
+        function addMemory() {
+            const memoryGrid = document.getElementById('memoryGrid');
+            const colors = [
+                'linear-gradient(135deg, #ffecd2, #fcb69f)',
+                'linear-gradient(135deg, #a8edea, #fed6e3)',
+                'linear-gradient(135deg, #ff9a9e, #fecfef)',
+                'linear-gradient(135deg, #84fab0, #8fd3f4)'
+            ];
+            const emojis = ['💝', '✨', '🌟', '💫', '🦋', '🌸'];
+            
+            const newMemory = document.createElement('div');
+            newMemory.style.background = colors[Math.floor(Math.random() * colors.length)];
+            newMemory.style.padding = '30px';
+            newMemory.style.borderRadius = '25px';
+            newMemory.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            newMemory.style.position = 'relative';
+            
+            const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+            newMemory.innerHTML = `
+                <span style="position: absolute; top: -10px; right: -10px; font-size: 4em; opacity: 0.3;">${emoji}</span>
+                <textarea style="width: 100%; height: 150px; background: white; border: none; padding: 15px; border-radius: 15px; font-family: 'Caveat', cursive; font-size: 1.2em; resize: none;" placeholder="A new memory..."></textarea>
+            `;
+            memoryGrid.appendChild(newMemory);
+        }
+
+        function initYearView() {
+            const yearGrid = document.getElementById('yearGrid');
+            months.forEach((month, idx) => {
+                const data = monthData[idx];
+                const card = document.createElement('div');
+                card.className = 'month-card';
+                
+                card.style.setProperty('--theme-color', data.borderColor);
+                card.querySelector = card.querySelector || (() => null);
+                
+                const beforeStyle = document.createElement('style');
+                beforeStyle.textContent = `
+                    #month-card-${idx}::before {
+                        background: ${data.color} !important;
+                    }
+                    #month-card-${idx} h3 {
+                        background: ${data.color};
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                `;
+                document.head.appendChild(beforeStyle);
+                card.id = `month-card-${idx}`;
+                
+                const icon = document.createElement('span');
+                icon.className = 'month-icon';
+                icon.textContent = data.icon;
+                
+                const title = document.createElement('h3');
+                title.textContent = month;
+                
+                const themeText = document.createElement('div');
+                themeText.className = 'month-theme-text';
+                themeText.textContent = data.theme;
+                
+                const goal = document.createElement('input');
+                goal.type = 'text';
+                goal.placeholder = '🎯 Monthly intention...';
+                goal.style.width = '100%';
+                goal.style.padding = '15px';
+                goal.style.border = '2px solid #ffe8ec';
+                goal.style.borderRadius = '15px';
+                goal.style.marginTop = '20px';
+                goal.style.fontSize = '1em';
+                goal.style.background = 'linear-gradient(135deg, #fff5f7, #ffe8ec)';
+                
+                card.appendChild(icon);
+                card.appendChild(title);
+                card.appendChild(themeText);
+                card.appendChild(goal);
+                
+                card.onclick = (e) => {
+                    if (e.target !== goal) {
+                        currentMonth = idx;
+                        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                        showTab('month');
+                    }
+                };
+                
+                yearGrid.appendChild(card);
+            });
+        }
+
+        // Initialize
+        initYearView();
+        updateMonthView();
+        buildYearlyHabits();
+
+        // Rotate quote function
+        function rotateQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % inspirationalQuotes.length;
+            const quoteEl = document.getElementById('dailyQuote');
+            quoteEl.style.opacity = '0';
+            setTimeout(() => {
+                quoteEl.textContent = inspirationalQuotes[currentQuoteIndex];
+                quoteEl.style.opacity = '1';
+            }, 300);
+        }
+
+        // Jump to today function
+        function jumpToToday() {
+            const today = new Date();
+            currentMonth = today.getMonth();
+            
+            // Switch to monthly view
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            
+            showTab('month');
+            
+            // Confetti celebration
+            createConfetti();
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#ff9a9e', '#fecfef', '#ffd1ff', '#84fab0', '#8fd3f4', '#ffecd2'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Calculate stats
+        function calculateStats() {
+            // Calculate habit completion rate
+            let totalHabits = 0;
+            let completedHabits = 0;
+            
+            for (let key in habitState) {
+                if (key.startsWith(currentMonth + '-')) {
+                    totalHabits++;
+                    if (habitState[key]) completedHabits++;
+                }
+            }
+            
+            const rate = totalHabits > 0 ? Math.round((completedHabits / totalHabits) * 100) : 0;
+            document.getElementById('habitRate').textContent = rate + '%';
+            
+            // Calculate streak (simplified - counts consecutive days with at least one habit)
+            let streak = 0;
+            const today = new Date().getDate();
+            for (let day = today; day >= 1; day--) {
+                let hasHabit = false;
+                for (let h = 0; h < habits.length; h++) {
+                    if (habitState[`${currentMonth}-${h}-${day}`]) {
+                        hasHabit = true;
+                        break;
+                    }
+                }
+                if (hasHabit) streak++;
+                else break;
+            }
+            document.getElementById('habitStreak').textContent = streak;
+            
+            // Count completed goals
+            let completed = document.querySelectorAll('.todo-checkbox.checked').length;
+            document.getElementById('goalsCompleted').textContent = completed;
+        }
+
+        // Update stats when showing stats page
+        function showTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Update pages
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            
+            // Initialize specific pages
+            if (tabName === 'month') updateMonthView();
+            if (tabName === 'habits') updateHabitTracker();
+            if (tabName === 'yearlyhabits') buildYearlyHabits();
+            if (tabName === 'mood') updateMoodTracker();
+            if (tabName === 'period') updatePeriodTracker();
+            if (tabName === 'stats') calculateStats();
+        }
+
+        // Enhanced todo checkbox with celebration
+        function enhanceTodoCheckbox(checkbox) {
+            const originalOnClick = checkbox.onclick;
+            checkbox.onclick = function() {
+                originalOnClick.call(this);
+                if (this.classList.contains('checked')) {
+                    this.classList.add('success-pulse');
+                    setTimeout(() => this.classList.remove('success-pulse'), 500);
+                    
+                    // Mini confetti
+                    const colors = ['#84fab0', '#8fd3f4'];
+                    for (let i = 0; i < 10; i++) {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        const rect = this.getBoundingClientRect();
+                        confetti.style.left = rect.left + rect.width/2 + 'px';
+                        confetti.style.top = rect.top + 'px';
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        document.body.appendChild(confetti);
+                        setTimeout(() => confetti.remove(), 3000);
+                    }
+                }
+            };
+        }
+
+        // Auto-rotate quotes every 30 seconds
+        setInterval(rotateQuote, 30000);
+
+        // Rating system for media
+        function rateMedia(event) {
+            if (event.target.tagName === 'SPAN') {
+                const rating = parseInt(event.target.getAttribute('data-rating'));
+                const stars = event.currentTarget.querySelectorAll('span');
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Add movie
+        function addMovie() {
+            const grid = document.getElementById('moviesGrid');
+            const newCard = document.createElement('div');
+            newCard.className = 'media-card';
+            newCard.innerHTML = `
+                <span class="media-icon">🎥</span>
+                <input type="text" placeholder="Movie Title" />
+                <label class="media-label">My Rating:</label>
+                <div class="rating-stars" onclick="rateMedia(event)">
+                    <span data-rating="1">⭐</span>
+                    <span data-rating="2">⭐</span>
+                    <span data-rating="3">⭐</span>
+                    <span data-rating="4">⭐</span>
+                    <span data-rating="5">⭐</span>
+                </div>
+                <label class="media-label">Genre:</label>
+                <input type="text" placeholder="Action, Drama, Comedy..." style="font-size: 0.9em;" />
+                <textarea placeholder="Your thoughts, favorite scenes, memorable quotes..."></textarea>
+            `;
+            grid.appendChild(newCard);
+            createConfetti();
+        }
+
+        // Add book
+        function addBook() {
+            const grid = document.getElementById('booksGrid');
+            const bookIcons = ['📕', '📗', '📘', '📙', '📔'];
+            const randomIcon = bookIcons[Math.floor(Math.random() * bookIcons.length)];
+            const newCard = document.createElement('div');
+            newCard.className = 'media-card';
+            newCard.innerHTML = `
+                <span class="media-icon">${randomIcon}</span>
+                <input type="text" placeholder="Book Title" />
+                <input type="text" placeholder="Author" style="font-size: 0.95em;" />
+                <label class="media-label">My Rating:</label>
+                <div class="rating-stars" onclick="rateMedia(event)">
+                    <span data-rating="1">⭐</span>
+                    <span data-rating="2">⭐</span>
+                    <span data-rating="3">⭐</span>
+                    <span data-rating="4">⭐</span>
+                    <span data-rating="5">⭐</span>
+                </div>
+                <label class="media-label">Genre:</label>
+                <input type="text" placeholder="Fiction, Non-fiction, Self-help..." style="font-size: 0.9em;" />
+                <textarea placeholder="Key takeaways, favorite quotes, how it impacted you..."></textarea>
+            `;
+            grid.appendChild(newCard);
+            createConfetti();
+        }
+
+        // Add song
+        function addSong() {
+            const grid = document.getElementById('musicGrid');
+            const musicIcons = ['🎼', '🎸', '🎹', '🎺', '🎻', '🥁'];
+            const randomIcon = musicIcons[Math.floor(Math.random() * musicIcons.length)];
+            const newCard = document.createElement('div');
+            newCard.className = 'media-card';
+            newCard.innerHTML = `
+                <span class="media-icon">${randomIcon}</span>
+                <input type="text" placeholder="Song Title" />
+                <input type="text" placeholder="Artist" style="font-size: 0.95em;" />
+                <label class="media-label">My Rating:</label>
+                <div class="rating-stars" onclick="rateMedia(event)">
+                    <span data-rating="1">⭐</span>
+                    <span data-rating="2">⭐</span>
+                    <span data-rating="3">⭐</span>
+                    <span data-rating="4">⭐</span>
+                    <span data-rating="5">⭐</span>
+                </div>
+                <label class="media-label">Genre:</label>
+                <input type="text" placeholder="Pop, Rock, Jazz, Classical..." style="font-size: 0.9em;" />
+                <textarea placeholder="Why you love it, when you discovered it, memories associated..."></textarea>
+            `;
+            grid.appendChild(newCard);
+            createConfetti();
+        }
+
+        // Show welcome message on first load
+        setTimeout(() => {
+            const welcome = document.createElement('div');
+            welcome.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #ff9a9e, #fecfef);
+                padding: 40px 60px;
+                border-radius: 30px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                z-index: 10000;
+                text-align: center;
+                animation: fadeIn 0.5s ease;
+                max-width: 500px;
+            `;
+            welcome.innerHTML = `
+                <div style="font-size: 3em; margin-bottom: 20px;">🎉</div>
+                <h2 style="color: white; font-size: 2em; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Welcome to Your 2026 Journey!</h2>
+                <p style="color: white; font-size: 1.2em; margin-bottom: 25px;">This is going to be your most amazing year yet!</p>
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+                    <p style="color: white; font-size: 0.95em; margin-bottom: 10px;">✨ New Feature: Track your spiritual habits year-round!</p>
+                    <button onclick="this.parentElement.parentElement.remove(); document.querySelectorAll('.tab-btn')[3].click();" style="background: rgba(255,255,255,0.3); color: white; border: 2px solid white; padding: 10px 25px; border-radius: 20px; font-size: 0.95em; cursor: pointer; font-weight: 600; margin-top: 5px;">📖 View Yearly Habits</button>
+                </div>
+                <button onclick="this.parentElement.remove()" style="background: white; color: #ff9a9e; border: none; padding: 15px 40px; border-radius: 25px; font-size: 1.1em; cursor: pointer; font-weight: 600;">Let's Begin! ✨</button>
+            `;
+            document.body.appendChild(welcome);
+        }, 1000);
+
+        // Build Yearly Habit Tracker
+        function buildYearlyHabits() {
+            const container = document.getElementById('yearlyHabitContainer');
+            const tabNav = document.getElementById('habitTabsNav');
+            container.innerHTML = '';
+            tabNav.innerHTML = '';
+
+            // Create tab buttons
+            yearlyHabits.forEach((habit, habitIndex) => {
+                const tabBtn = document.createElement('button');
+                tabBtn.className = 'habit-tab-btn';
+                tabBtn.style.background = `linear-gradient(135deg, ${habit.color}22, ${habit.color}44)`;
+                tabBtn.style.borderColor = habit.color;
+                
+                if (habitIndex === currentHabitTab) {
+                    tabBtn.classList.add('active');
+                    tabBtn.style.background = `linear-gradient(135deg, ${habit.color}, ${habit.color}dd)`;
+                }
+                
+                tabBtn.innerHTML = `${habit.icon} ${habit.name}`;
+                tabBtn.onclick = () => {
+                    currentHabitTab = habitIndex;
+                    buildYearlyHabits();
+                };
+                
+                tabNav.appendChild(tabBtn);
+            });
+
+            // Create habit cards (but only show the selected one)
+            yearlyHabits.forEach((habit, habitIndex) => {
+                const habitCard = document.createElement('div');
+                habitCard.className = 'yearly-habit-card single-habit-view';
+                
+                if (habitIndex === currentHabitTab) {
+                    habitCard.classList.add('active');
+                }
+                
+                let completedDays = 0;
+                let totalDays = 0;
+
+                // Calculate stats
+                for (let month = 0; month < 12; month++) {
+                    for (let day = 1; day <= daysInMonth[month]; day++) {
+                        totalDays++;
+                        const key = `yearly-${habitIndex}-${month}-${day}`;
+                        if (yearlyHabitState[key]) completedDays++;
+                    }
+                }
+
+                const percentage = totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0;
+
+                // Header
+                habitCard.innerHTML = `
+                    <div class="yearly-habit-header">
+                        <div class="yearly-habit-title" style="color: ${habit.color};">
+                            <span style="font-size: 2em;">${habit.icon}</span>
+                            <span>${habit.name}</span>
+                        </div>
+                        <div class="yearly-habit-stats">
+                            <div class="yearly-stat">
+                                <div class="yearly-stat-number">${completedDays}/365</div>
+                                <div class="yearly-stat-label">Days</div>
+                            </div>
+                            <div class="yearly-stat">
+                                <div class="yearly-stat-number">${percentage}%</div>
+                                <div class="yearly-stat-label">Complete</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Create months
+                months.forEach((monthName, monthIndex) => {
+                    const monthSection = document.createElement('div');
+                    monthSection.className = 'yearly-month-section';
+                    
+                    const monthLabel = document.createElement('div');
+                    monthLabel.className = 'yearly-month-label';
+                    monthLabel.innerHTML = `<span>${monthData[monthIndex].icon}</span> ${monthName}`;
+                    monthSection.appendChild(monthLabel);
+
+                    const calendar = document.createElement('div');
+                    calendar.className = 'yearly-calendar';
+
+                    // Get first day of month
+                    const firstDay = getDayOfWeek(2026, monthIndex, 1);
+                    
+                    // Add empty cells for alignment
+                    for (let i = 0; i < firstDay; i++) {
+                        const emptyCell = document.createElement('div');
+                        emptyCell.className = `yearly-day-cell empty ${habit.class}`;
+                        calendar.appendChild(emptyCell);
+                    }
+
+                    // Add day cells
+                    for (let day = 1; day <= daysInMonth[monthIndex]; day++) {
+                        const dayCell = document.createElement('div');
+                        const key = `yearly-${habitIndex}-${monthIndex}-${day}`;
+                        
+                        dayCell.className = `yearly-day-cell active ${habit.class}`;
+                        if (yearlyHabitState[key]) {
+                            dayCell.classList.add('completed');
+                            dayCell.textContent = '✓';
+                        } else {
+                            dayCell.textContent = day;
+                        }
+
+                        dayCell.onclick = () => {
+                            yearlyHabitState[key] = !yearlyHabitState[key];
+                            
+                            if (yearlyHabitState[key]) {
+                                dayCell.classList.add('completed');
+                                dayCell.textContent = '✓';
+                                dayCell.style.animation = 'successPulse 0.5s ease';
+                            } else {
+                                dayCell.classList.remove('completed');
+                                dayCell.textContent = day;
+                            }
+
+                            // Save data
+                            saveAllData();
+
+                            // Update stats
+                            buildYearlyHabits();
+                            calculateYearlyStats();
+                            
+                            setTimeout(() => {
+                                dayCell.style.animation = '';
+                            }, 500);
+                        };
+
+                        calendar.appendChild(dayCell);
+                    }
+
+                    monthSection.appendChild(calendar);
+                    habitCard.appendChild(monthSection);
+                });
+
+                container.appendChild(habitCard);
+            });
+
+            calculateYearlyStats();
+        }
+
+        // Calculate yearly stats
+        function calculateYearlyStats() {
+            let bibleReadingCount = 0;
+            let totalCompleted = 0;
+            let totalPossible = yearlyHabits.length * 365;
+
+            for (let key in yearlyHabitState) {
+                if (yearlyHabitState[key]) {
+                    totalCompleted++;
+                    if (key.startsWith('yearly-0-')) { // Bible Reading is index 0
+                        bibleReadingCount++;
+                    }
+                }
+            }
+
+            document.getElementById('bibleReadingTotal').textContent = bibleReadingCount;
+            document.getElementById('totalHabitsCompleted').textContent = totalCompleted;
+            
+            const successRate = Math.round((totalCompleted / totalPossible) * 100);
+            document.getElementById('yearlySuccessRate').textContent = successRate + '%';
+
+            // Calculate best streak (simplified)
+            let currentStreak = 0;
+            let bestStreak = 0;
+            const today = new Date();
+            const currentDay = today.getDate();
+            const currentMonth = today.getMonth();
+
+            for (let month = 0; month <= currentMonth; month++) {
+                const maxDay = month === currentMonth ? currentDay : daysInMonth[month];
+                for (let day = 1; day <= maxDay; day++) {
+                    let allHabits = true;
+                    for (let h = 0; h < yearlyHabits.length; h++) {
+                        const key = `yearly-${h}-${month}-${day}`;
+                        if (!yearlyHabitState[key]) {
+                            allHabits = false;
+                            break;
+                        }
+                    }
+                    if (allHabits) {
+                        currentStreak++;
+                        if (currentStreak > bestStreak) bestStreak = currentStreak;
+                    } else {
+                        currentStreak = 0;
+                    }
+                }
+            }
+
+            document.getElementById('bestStreak').textContent = bestStreak;
+        }
+
+        // Show welcome message on first load
+        setTimeout(() => {
+            const welcome = document.createElement('div');
+            welcome.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #ff9a9e, #fecfef);
+                padding: 40px 60px;
+                border-radius: 30px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                z-index: 10000;
+                text-align: center;
+                animation: fadeIn 0.5s ease;
+            `;
+            welcome.innerHTML = `
+                <div style="font-size: 3em; margin-bottom: 20px;">🎉</div>
+                <h2 style="color: white; font-size: 2em; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Welcome to Your 2026 Journey!</h2>
+                <p style="color: white; font-size: 1.2em; margin-bottom: 25px;">This is going to be your most amazing year yet!</p>
+                <button onclick="this.parentElement.remove()" style="background: white; color: #ff9a9e; border: none; padding: 15px 40px; border-radius: 25px; font-size: 1.1em; cursor: pointer; font-weight: 600;">Let's Begin! ✨</button>
+            `;
+            document.body.appendChild(welcome);
+        }, 1000);
+    </script>
+</body>
+</html>
